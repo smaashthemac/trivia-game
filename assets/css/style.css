@@ -1,11 +1,16 @@
 body {
-	font-family: 'Raleway', cursive;
 	background-image: url("http://1.bp.blogspot.com/-aLG3zd3GJC8/UY9wJpe2xPI/AAAAAAAAEIA/y11bwmsRgzs/s1600/IMG_5311.jpg");
 	background-size: cover;
-	color: #000;
 }
 
 p {
+	font-family: 'Raleway', cursive;
+	font-size: 30px;
+	line-height: 1.5;
+	color: #000;
+}
+
+#infoText {
 	color: #000;
 	font-size: 20px;
 }
@@ -20,9 +25,9 @@ h1 {
 
 h2 {
 	font-family: 'Raleway', cursive;
-	font-size: 40px;
+	font-size: 50px;
 	font-style: italic;
-	line-height: 1.5;
+	line-height: 1.2;
 	color: #BE5E48;
 }
 
@@ -30,6 +35,15 @@ h3 {
 	font-family: 'Raleway', cursive;
 	font-size: 30px;
 	color: #BD567B;
+}
+
+.btn {
+	background: #BE5E48;;
+	color: #fff;
+	top: 100px;
+	font-family: 'Raleway', cursive;
+	font-size: 30px;
+	cursor: cell;
 }
 
 #title {
@@ -47,11 +61,21 @@ h3 {
 }
 
 #game {
+	text-align: center;
 	background: #BFB6AD;
 	height: 620px;
 	margin-left: 20px;
 	padding: 30px 20px 20px 30px;
 }
+
+#option1:hover,
+#option2:hover,
+#option3:hover,
+#option4:hover {
+	background: #E6E6E6;
+	cursor: cell;
+}
+
 
 /* border */
 #top,
