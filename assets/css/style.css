@@ -18,7 +18,7 @@ p {
 h1 {
 	font-size: 105px;
 	line-height: .8;
-	letter-spacing: 5px;
+	letter-spacing: 3px;
 	color: #BE5E48;
 	font-family: 'Abril Fatface', cursive;
 }
@@ -34,7 +34,22 @@ h2 {
 h3 {
 	font-family: 'Raleway', cursive;
 	font-size: 30px;
-	color: #BD567B;
+	color: #BE5E48;
+}
+
+h4 {
+	font-size: 70px;
+	line-height: .8;
+	letter-spacing: 5px;
+	color: #BE5E48;
+	font-family: 'Abril Fatface', cursive;
+}
+
+h5 {
+	font-family: 'Raleway', cursive;
+	font-size: 30px;
+	line-height: 1.5;
+	color: #BE5E48;
 }
 
 .btn {
@@ -53,7 +68,7 @@ h3 {
 }
 
 #info {
-	background: #BFB6AD;
+	background: #D4CAC0;
 	text-align: left;
 	padding: 55px 20px 20px 30px;
 	margin-left: -20px;
@@ -62,7 +77,7 @@ h3 {
 
 #game {
 	text-align: center;
-	background: #BFB6AD;
+	background: #D4CAC0;
 	height: 620px;
 	margin-left: 20px;
 	padding: 30px 20px 20px 30px;

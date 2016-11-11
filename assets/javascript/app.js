@@ -14,130 +14,147 @@
 // 		which resets the game and does NOT reload the page
 
 
-// create an array with objects
-// var questions = [
-// 	// each object has a question string and 4 answer strings
-// 	// index answers: q1: [1], q2: [2], q3: [1], q4: [0], q5: [1], q6: [3], q7: [0], q8: [3], q9: [1], q10: [2]
-// 	{q1: "The scientific study of plant life is called what?" a1: "Forestry" a2: "Botany" a3: "Dendrology" a4: "Arbory"},
-// 	{q2: "What is the Texas state plant?", a1: "Aloe Vera", a2: "Texas Yucca", a3: "Prickly Pear Cactus", a4: "Texas Giant Hibiscus"},
-// 	{q3: "What is an heirloom seed?", a1: "A seed that's worth a lot of money.", a2: "A seed from a variety of plant that his been around for many years.", a3: "A seed your grandmother gives you.", a4: "A tomato seed."},
-// 	{q4: "How many plant species on earth are used for medicine?", a1: "70,000", a2: "10,000", a3: "20,000", a4: "30,000"},
-// 	{q5: "Which member of the nightshade family is deadly?", a1: "Tobacco", a2: "Belladonna", a3: "Tabasco", a4: "Eggplant"},
-// 	{q6: "What is the Texas state flower?", a1: "Indian Blanket", a2: "Snapdragon", a3: "Oxblood Lily", a4: "Bluebonnet"},
-// 	{q7: "The Japanese word “sakura” means the blossoming of what kind of tree?", a1: "Cherry Tree", a2: "Japanese Pine", a3: "Hydrangea", a4:"Bonsai Tree"},
-// 	{q8: "How fast does bamboo grow?", a1: "Up to 2 meters a day.", a2: "Up to .5 meters a day.", a3: "Up to 3 meters a day.", a4: "Up to 1 meter a day."},
-// 	{q9: "How many species of edible plants are there on earth", a1: "100,000", a2: "20,000", a3: "80,000", a4: "50,000"},
-// 	{q10: "What Texas plant is used to make Mezcal?", a1: "Furcraeas", a2: "Bromeliad", a3: "Agave", a4: "Aloe Vera"},
-// ];
+// all questions and answers
+var qa = [
+	
+	// qa.[0].question // qa[0].answers[1]
+	{question: "The scientific study of plant life is called what?",
+	answers: ["Forestry", "Botany", "Dendrology", "Arbory"],
+	correct: "Botany"},
+	
+	// qa.[1].question // qa[1].answers[2]
+	{question: "What is the Texas state plant?",
+	answers: ["Aloe Vera", "Texas Yucca", "Prickly Pear Cactus", "Texas Giant Hibiscus"],
+	correct: "Prickly Pear Cactus"},
 
-var q1 = {
-	question: "The scientific study of plant life is called what?",
-	a1: "Forestry",
-	a2: "Botany",
-	a3: "Dendrology",
-	a4: "Arbory"
-}
-var q2 = {
-	question: "What is the Texas state plant?",
-	a1: "Aloe Vera",
-	a2: "Texas Yucca",
-	a3: "Prickly Pear Cactus",
-	a4: "Texas Giant Hibiscus"
-}
-var q3 = {
-	question: "What is an heirloom seed?",
-	a1: "A seed that is worth a lot of money.",
-	a2: "A seed from a variety of plant that has been around for many years.",
-	a3: "A seed your grandmother gave you.",
-	a4: "A tomato seed."
-}
-var q4 = {
-	question: "How many plant species on earth are used for medicine?",
-	a1: "70,000",
-	a2: "10,000",
-	a3: "20m,000",
-	a4: "30,000"
-}
-var q5 = {
-	question: "Which member of the nightshade family is deadly?",
-	a1: "Tobacco",
-	a2: "Belladonna",
-	a3: "Tabasco",
-	a4: "Eggplant"
-}
-var q6 = {
-	question: "What is the Texas state flower?",
-	a1: "Indian Blanket",
-	a2: "Snapdragon",
-	a3: "Oxblood Lily",
-	a4: "Bluebonnet"
-}
-var q7 = {
-	question: "The Japanese word 'sakura' means the blossoming of what kind of tree?",
-	a1: "Cherry Tree",
-	a2: "Japanese Pine",
-	a3: "Hydrangea",
-	a4: "Bonsai Tree"
-}
-var q8 = {
-	question: "How fast does bamboo grow?",
-	a1: "Up to 2 meters a day.",
-	a2: "Up to .5 meters a day.",
-	a3: "Up to 3 meters a day.",
-	a4: "Up to 1 meter a day."
-}
-var q9 = {
-	question: "How many species of edible plants are there on earth?",
-	a1: "100,000",
-	a2: "20,000",
-	a3: "80,000",
-	a4: "50,000"
-}
-var q10 = {
-	question: "What Texas plant is used to make Mezcal?",
-	a1: "Furcraeas",
-	a2: "Bromeliad",
-	a3: "Agave",
-	a4: "Aloe Vera"
-}
+	// qa.[2].question // qa[2].answers[1]
+	{question: "What is an heirloom seed?",
+	answers: ["A seed that is worth a lot of money.", "A seed from a variety of plant that has been around for many years.", "A seed your grandmother gave you.", "A tomato seed."],
+	correct: "A seed from a variety of plant that has been around for many years."},
+	
+	// qa.[3].question // qa[3].answers[0]
+	{question: "How many plant species on earth are used for medicine?",
+	answers: ["70,000", "10,000", "20m,000", "30,000"],
+	correct: "70,000"},
 
-// create a start button (this exists on html and will be replaced with each question)
+	// qa.[4].question // qa[4].answers[1]
+	{question: "Which member of the nightshade family is deadly?",
+	answers: ["Tobacco", "Belladonna", "Tabasco", "Eggplant"],
+	correct: "Belladonna"},
+	
+	// qa.[5].question // qa[5].answers[3]
+	{question: "What is the Texas state flower?",
+	answers: ["Indian Blanket", "Snapdragon", "Oxblood Lily", "Bluebonnet"],
+	correct: "Bluebonnet"},
+	
+	// qa.[6].question // qa[6].answers[0]
+	{question: "The Japanese word 'sakura' means the blossoming of what kind of tree?",
+	answers: ["Cherry Tree", "Japanese Pine", "Hydrangea", "Bonsai Tree"],
+	correct: "Cherry Tree"},
+	
+	// qa.[7].question // qa[7].answers[3]
+	{question: "How fast does bamboo grow?",
+	answers: ["Up to 2 meters a day.", "Up to .5 meters a day.", "Up to 3 meters a day.", "Up to 1 meter a day."],
+	correct: "Up to 1 meter a day."},
+	
+	// qa.[8].question // qa[8].answers[1]
+	{question: "How many species of edible plants are there on earth?",
+	answers: ["100,000", "20,000", "80,000", "50,000"],
+	correct: "20,000"},
+	
+	// qa.[9].question // qa[9].answers[2]
+	{question: "What Texas plant is used to make Mezcal?",
+	answers: ["Furcraeas", "Bromeliad", "Agave", "Aloe Vera"],
+	correct: "Agave"},
+
+];
+
+// the counter to display 30 seconds to start; will be decremented to show how much time remains
+var number = 10;
+
+// create a start button (this exists on html and will be replaced with the first question, and start a timer)
 // on click, replaces div with first question
 $(".btn").on("click", function() {
-	displayQuestion(q1);
+	displayQuestion();
+	runGame();
 });
 
+
+
+function tenSeconds() {
+	console.log('tenSeconds Triggered');
+	displayQuestion2();
+}
+
+// run game function starts the 20 second timer that displays on the first question
+function runGame(){
+	counter = setInterval(decrement, 1000);
+}
+
+// decrement timer function
+function decrement() {
+	// decrease number by one
+	number--;
+	// show the number in the timer div
+	$("#timer").html("<h5><br>You have " + number + " seconds remaining</h5>");
+	// once number hits 0...
+	if (number === 0) {
+		$("#question").html("<br><h4>Time's Up!</h4><br>");
+		$("#question").append("<p>The answer was " + qa[0].correct + ".</p>")
+		$("#question").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
+		$("#option1").html("");
+		$("#option2").html("");
+		$("#option3").html("");
+		$("#option4").html("");
+		$("#timer").html("");
+		setTimeout(tenSeconds, 10000);
+		clearInterval(counter);
+	}
+}
+
+
 // create a function for questions being revealed and answered
-function displayQuestion(q) {
-	$("#question").html("<h2>" + q.question + "</h2><br>");
-	$("#option1").html("<p>" + q.a1 + "<p>");
-	$("#option2").html("<p>" + q.a2 + "<p>");
-	$("#option3").html("<p>" + q.a3 + "<p>");
-	$("#option4").html("<p>" + q.a4 + "<p>");
+function displayQuestion() {
+	$("#question").html("<h2>" + qa[0].question + "</h2><br>");
+	$("#option1").html("<p>" + qa[0].answers[0] + "<p>");
+	$("#option2").html("<p>" + qa[0].answers[1] + "<p>");
+	$("#option3").html("<p>" + qa[0].answers[2] + "<p>");
+	$("#option4").html("<p>" + qa[0].answers[3] + "<p>");
+}
+
+function displayQuestion2() {
+	$("#question").html("<h2>" + qa[1].question + "</h2><br>");
+	$("#option1").html("<p>" + qa[1].answers[0] + "<p>");
+	$("#option2").html("<p>" + qa[1].answers[1] + "<p>");
+	$("#option3").html("<p>" + qa[1].answers[2] + "<p>");
+	$("#option4").html("<p>" + qa[1].answers[3] + "<p>");
 }
 
 // create a function for clicking the correct answer - (resolve where it prints though)
-// function correctAnswer() {
-// 	$("#option2").on("click", function() {
-// 		$("#game").html("Great job! The answer is " + q1.a2);
-// 	});
-// }
-// correctAnswer();
 
 // create a function for clicking answers - (resolve this for reuse re: different divs)
-if ($("#option2").on("click")) {
-	$("#game").html("Great job! The answer is " + q1.a2);
-} else if ($("#option1").on("click")) {
-	$("#game").html("Sorry, the answer is " + q1.a2);
-} else if ($("#option3").on("click")) {
-	$("#game").html("Sorry, the answer is " + q1.a2);
-} else {
-	$("#game").html("Sorry, the answer is " + q1.a2);
-}
 
-
-
-
+// this happens after question 1
+$("#option2").on("click", function() {
+		$("#game").html("<br><h4>Great Job!</h4><br>");
+		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
+		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
+	});
+$("#option1").on("click", function() {
+		$("#game").html("<br><h4>Sorry!</h4><br>");
+		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
+		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
+	});
+$("#option3").on("click", function() {
+		$("#game").html("<br><h4>Sorry!</h4><br>");
+		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
+		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
+	});
+$("#option4").on("click", function() {
+		$("#game").html("<br><h4>Sorry!</h4><br>");
+		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
+		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
+	});
 
 	// show the first question by calling the main array.object[index]
 
@@ -157,3 +174,10 @@ if ($("#option2").on("click")) {
 
 // has a button to click to restart the game
 // on click, everything resets but the page doesn't reload
+
+	
+
+
+
+
+
