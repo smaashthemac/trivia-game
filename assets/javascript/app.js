@@ -71,25 +71,28 @@ var qa = [
 
 // the counter to display 30 seconds to start; will be decremented to show how much time remains
 var number = 10;
+var currentQuestionIndex = 0;
 
-// create a start button (this exists on html and will be replaced with the first question, and start a timer)
+// create a start button
 // on click, replaces div with first question
 $(".btn").on("click", function() {
-	displayQuestion();
-	runGame();
+	displayQuestion(currentQuestionIndex);
 });
 
-
-
 function tenSeconds() {
-	console.log('tenSeconds Triggered');
-	displayQuestion2();
+	console.log("ten seconds triggered");
+	displayQuestion(currentQuestionIndex);
 }
 
 // run game function starts the 20 second timer that displays on the first question
 function runGame(){
 	counter = setInterval(decrement, 1000);
 }
+
+// function cycles through index questions and their answers
+function plusPlus(){
+	currentQuestionIndex++;
+};
 
 // decrement timer function
 function decrement() {
@@ -99,6 +102,7 @@ function decrement() {
 	$("#timer").html("<h5><br>You have " + number + " seconds remaining</h5>");
 	// once number hits 0...
 	if (number === 0) {
+		plusPlus();
 		$("#question").html("<br><h4>Time's Up!</h4><br>");
 		$("#question").append("<p>The answer was " + qa[0].correct + ".</p>")
 		$("#question").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
@@ -109,37 +113,32 @@ function decrement() {
 		$("#timer").html("");
 		setTimeout(tenSeconds, 10000);
 		clearInterval(counter);
+		number = 10
 	}
 }
 
-
 // create a function for questions being revealed and answered
-function displayQuestion() {
-	$("#question").html("<h2>" + qa[0].question + "</h2><br>");
-	$("#option1").html("<p>" + qa[0].answers[0] + "<p>");
-	$("#option2").html("<p>" + qa[0].answers[1] + "<p>");
-	$("#option3").html("<p>" + qa[0].answers[2] + "<p>");
-	$("#option4").html("<p>" + qa[0].answers[3] + "<p>");
-}
-
-function displayQuestion2() {
-	$("#question").html("<h2>" + qa[1].question + "</h2><br>");
-	$("#option1").html("<p>" + qa[1].answers[0] + "<p>");
-	$("#option2").html("<p>" + qa[1].answers[1] + "<p>");
-	$("#option3").html("<p>" + qa[1].answers[2] + "<p>");
-	$("#option4").html("<p>" + qa[1].answers[3] + "<p>");
-}
+function displayQuestion(index) {
+	$("#question").html("<h2>" + qa[index].question + "</h2><br>");
+	$("#option1").html("<p>" + qa[index].answers[0] + "<p>");
+	$("#option2").html("<p>" + qa[index].answers[1] + "<p>");
+	$("#option3").html("<p>" + qa[index].answers[2] + "<p>");
+	$("#option4").html("<p>" + qa[index].answers[3] + "<p>");
+		runGame();
+};
 
 // create a function for clicking the correct answer - (resolve where it prints though)
-
-// create a function for clicking answers - (resolve this for reuse re: different divs)
-
-// this happens after question 1
 $("#option2").on("click", function() {
+		setTimeout(tenSeconds, 10000);
+		clearInterval(counter);
+		number = 10
+		plusPlus();
 		$("#game").html("<br><h4>Great Job!</h4><br>");
 		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
 		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
 	});
+
+// create a function for clicking incorrect answers - (resolve this for reuse re: different divs)
 $("#option1").on("click", function() {
 		$("#game").html("<br><h4>Sorry!</h4><br>");
 		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
@@ -155,6 +154,8 @@ $("#option4").on("click", function() {
 		$("#game").append("<p>The answer is " + qa[0].correct + ".</p>")
 		$("#game").append("<p><br><img src='assets/images/answer1.jpg' /></p>")
 	});
+
+
 
 	// show the first question by calling the main array.object[index]
 
