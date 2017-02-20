@@ -61,6 +61,10 @@ h5 {
 	cursor: cell;
 }
 
+#start {
+	margin-top: 225px;
+}
+
 #title {
 	z-index: 200;
 	top: 55px;
