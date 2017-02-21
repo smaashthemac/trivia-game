@@ -48,8 +48,8 @@ var questions = [
 	image: "assets/images/answer2.jpg"},
 
 	{question: "What is an heirloom seed?",
-	answers: ["A seed that is worth a lot of money.", "A seed from a variety of plant that has been around for many years.", "A seed your grandmother gave you.", "A tomato seed."],
-	correctAnswer: "A seed from a variety of plant that has been around for many years.",
+	answers: ["A seed that is worth a lot of money.", "A seed from a variety that has been around for years.", "A seed your grandmother gave you.", "A tomato seed."],
+	correctAnswer: "A seed from a variety that has been around for years.",
 	image: "assets/images/answer3.jpg"},
 	
 	{question: "How many plant species on earth are used for medicine?",
@@ -65,7 +65,7 @@ var questions = [
 	{question: "What is the Texas state flower?",
 	answers: ["Indian Blanket", "Snapdragon", "Oxblood Lily", "Bluebonnet"],
 	correctAnswer: "Bluebonnet",
-	image: "assets/images/answer6.jpg"},
+	image: "assets/images/answer6.png"},
 	
 	{question: "The Japanese word 'sakura' means the blossoming of what kind of tree?",
 	answers: ["Cherry Tree", "Japanese Pine", "Hydrangea", "Bonsai Tree"],
@@ -75,7 +75,7 @@ var questions = [
 	{question: "How fast does bamboo grow?",
 	answers: ["Up to 2 meters a day.", "Up to .5 meters a day.", "Up to 3 meters a day.", "Up to 1 meter a day."],
 	correctAnswer: "Up to 1 meter a day.",
-	image: "assets/images/answer8.jpg"},
+	image: "assets/images/answer8.png"},
 	
 	{question: "How many species of edible plants are there on earth?",
 	answers: ["100,000", "20,000", "80,000", "50,000"],
@@ -109,10 +109,10 @@ var game = {
 
 	loadQuestion: function() {
 		timer = setInterval(game.countdown, 1000);
-		panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
+		panel.html("<h2>" + questions[this.currentQuestion].question + "</h2><br>");
 
 		for (var i=0; i < questions[this.currentQuestion].answers.length; i++) {
-			panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i] + "'>" + questions[this.currentQuestion].answers[i] + "</button");
+			panel.append("<button class='btn btn-default btn-lg btn-block' id='answer-button' data-name='" + questions[this.currentQuestion].answers[i] + "'>" + questions[this.currentQuestion].answers[i] + "</button><br><br>");
 		}
 	},
 
@@ -128,8 +128,8 @@ var game = {
 		$("#counter-number").html(game.counter);
 
 		panel.html("<h2>Out of Time!</h2>");
-		panel.append("<h3>The correct answer was: " + questions[this.currentQuestion].correctAnswer + "</h3>");
-		panel.append("<img src='" + questions[this.currentQuestion].image + "'/>");
+		panel.append("<p>The correct answer was: " + questions[this.currentQuestion].correctAnswer + "</p>");
+		panel.append("<br><img src='" + questions[this.currentQuestion].image + "'/>");
 
 		if (game.currentQuestion === questions.length - 1) {
 			setTimeout(game.results, 3 * 1000);
@@ -141,13 +141,12 @@ var game = {
 
 	results: function() {
 		clearInterval(timer);
-		panel.html("<h2>All done! Here's how you did.</h2>");
-		$("counter-number").html(game.counter);
+		panel.html("<h2>All done! Here's how you did:</h2>");
 
-		panel.append("<h3>Correct Answers: " + game.correct + "</h3>");
-    	panel.append("<h3>Incorrect Answers: " + game.incorrect + "</h3>");
-    	panel.append("<h3>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</h3>");
-    	panel.append("<br><button id='start-over'>Start Over?</button>");
+		panel.append("<h5>Correct Answers: " + game.correct + "</h5>");
+    	panel.append("<h5>Incorrect Answers: " + game.incorrect + "</h5>");
+    	panel.append("<h5>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</h5>");
+    	panel.append("<br><button id='start-over' class='btn btn-default btn-lg btn-block'>Start Over?</button>");
   	},
 
   	clicked: function(e) {
@@ -164,9 +163,9 @@ var game = {
   		game.incorrect++;
   		clearInterval(timer);
 
-  		panel.html("<h2>Nope!</h2>");
-    	panel.append("<h3>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h3>");
-    	panel.append("<img src='" + questions[game.currentQuestion].image + "' />");
+  		panel.html("<h2>Sorry!</h2>");
+    	panel.append("<p>The Correct Answer is: " + questions[game.currentQuestion].correctAnswer + "</p>");
+    	panel.append("<br><img src='" + questions[game.currentQuestion].image + "' />");
 
     	if (game.currentQuestion === questions.length - 1) {
     		setTimeout(game.results, 3 * 1000);
@@ -182,8 +181,9 @@ var game = {
 
 	    game.correct++;
 
-	    panel.html("<h2>Correct!</h2>");
-	    panel.append("<img src='" + questions[game.currentQuestion].image + "' />");
+	    panel.html("<h2>Great job!</h2>");
+	    panel.append("<p>The answer is " + questions[game.currentQuestion].correctAnswer + "</p>")
+	    panel.append("<br><img src='" + questions[game.currentQuestion].image + "' />");
 
 	    if (game.currentQuestion === questions.length - 1) {
 	      setTimeout(game.results, 3 * 1000);
@@ -208,11 +208,11 @@ $(document).on("click", "#start-over", function() {
   game.reset();
 });
 
-$(document).on("click", ".answer-button", function(e) {
+$(document).on("click", "#answer-button", function(e) {
   game.clicked(e);
 });
 
 $(document).on("click", "#start", function() {
-  $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+  $("#sub-wrapper").prepend("<h5>Time Remaining: <span id='counter-number'>30</span> Seconds</h5>");
   game.loadQuestion();
 });

@@ -47,13 +47,13 @@ h4 {
 
 h5 {
 	font-family: 'Raleway', cursive;
-	font-size: 30px;
+	font-size: 26px;
 	line-height: 1.5;
-	color: #BE5E48;
+	color: #000;
 }
 
-.btn {
-	background: #BE5E48;;
+.start,  {
+	background: #BE5E48 !important;
 	color: #fff;
 	top: 100px;
 	font-family: 'Raleway', cursive;
@@ -61,7 +61,22 @@ h5 {
 	cursor: cell;
 }
 
+#answer-button, #start-over {
+	background: #D4CAC0;;
+	color: #000;
+	top: 100px;
+	font-family: 'Raleway', cursive;
+	font-size: 22px;
+	cursor: cell;
+}
+
 #start {
+	background: #BE5E48 !important;
+	color: #fff;
+	top: 100px;
+	font-family: 'Raleway', cursive;
+	font-size: 30px;
+	cursor: cell;
 	margin-top: 225px;
 }
 
@@ -82,17 +97,18 @@ h5 {
 #game {
 	text-align: center;
 	background: #D4CAC0;
-	height: 620px;
+	height: 660px;
 	margin-left: 20px;
 	padding: 30px 20px 20px 30px;
 }
 
-#option1:hover,
-#option2:hover,
-#option3:hover,
-#option4:hover {
+#answer-button:hover {
 	background: #E6E6E6;
 	cursor: cell;
+}
+
+img {
+	width: 450px;
 }
 
 
